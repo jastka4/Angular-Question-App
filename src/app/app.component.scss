@@ -1,0 +1,98 @@
+$greyText: grey;
+$nickname: blue;
+$carouselArrow: blue;
+$carouselArrowHover: rgba(37, 170, 225, 0.8);
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-align($position: relative) {
+    position: $position;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.container {
+    padding: 10px 125px 50px 125px;
+    #close {
+        position: absolute;
+        font-size: 1.5em;
+        color: $greyText;
+        top: 5px;
+        right: 15px
+    }
+    #header {
+        padding: 50px 0 30px 0;
+        border-bottom: 2px solid $greyText;
+        img {
+            @include horizontal-align();
+            height: 85px;
+            border-radius: 50%
+        }
+        #nickname {
+            margin: 15px 0;
+            text-align: center;
+            color: $nickname;
+            font-size: 1.3em;
+            font-weight: bold
+        }
+        #member_for {
+            text-align: left
+        }
+        #last_seen {
+            text-align: center
+        }
+        #activity {
+            text-align: right
+        }
+        .profile_info {
+            color: $greyText;
+            padding: 0 5px 0 0;
+            text-transform: uppercase
+        }
+    }
+    #myCarousel {
+        margin-bottom: 10px;
+        padding: 20px 0 0 0;
+        width: 100%;
+        text-align: center;
+        @include horizontal-align();
+        .carousel-prev,
+        .carousel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            text-align: center;
+            color: #FFFFFF;
+            background: $carouselArrow;
+            font-size: 30px;
+            line-height: 32px;
+            transition: 0.6s ease;
+            border-radius: 50%
+        }
+        .carousel-next {
+            right: 0
+        }
+        .carousel-prev {
+            left: 0
+        }
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: $carouselArrowHover;
+            color: #FFFFFF
+        }
+        .item {
+            font-size: 3em;
+            font-family: 'Indie Flower', cursive
+        }
+    }
+}
