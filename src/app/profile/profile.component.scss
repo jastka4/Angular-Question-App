@@ -1,0 +1,206 @@
+@import "partials";
+$greyText: rgba(125, 139, 152, 1);
+$greyBg: rgba(222, 222, 222, 0.5);
+$nickname: rgba(2, 102, 179, 1);
+$card: rgba(229, 245, 253, 1);
+$carouselArrow: $nickname;
+$carouselArrowHover: rgba(37, 170, 225, 0.8);
+$stripped-bg: repeating-linear-gradient( 45deg, $greyBg, $greyBg 1px, #FFF 1px, #FFF 3px);
+.container {
+    padding: 10px 125px 20px 125px;
+    text-align: center;
+    #close {
+        position: absolute;
+        font-size: 2em;
+        color: $greyText;
+        top: 5px;
+        right: 15px
+    }
+    #header {
+        padding: 50px 0 30px 0;
+        border-bottom: 2px solid $greyText;
+        #profile_picture {
+            text-align: left;
+            img {
+                @include horizontal-align();
+                @include round-image(85px)
+            }
+        }
+        #nickname {
+            margin: 15px 0;
+            color: $nickname;
+            font-size: 1.3em;
+            font-weight: bold
+        }
+        #member_for {
+            text-align: left
+        }
+        #activity {
+            text-align: right;
+            i:before {
+                content: "";
+                width: 23px;
+                height: 25px;
+                background: url("/assets/images/ribbon.png") -23px 0 no-repeat;
+                float: right;
+            }
+        }
+        .profile_info {
+            color: $greyText;
+            padding: 0 5px 0 0;
+            text-transform: uppercase
+        }
+    }
+    #myCarousel {
+        padding: 20px 0 0 0;
+        width: 100%;
+        @include horizontal-align();
+        .carousel-prev,
+        .carousel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            color: #FFFFFF;
+            background: $carouselArrow;
+            font-size: 30px;
+            line-height: 32px;
+            transition: 0.6s ease;
+            border-radius: 50%
+        }
+        .carousel-next {
+            right: 0
+        }
+        .carousel-prev {
+            left: 0
+        }
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: $carouselArrowHover;
+            color: #FFFFFF
+        }
+        .item {
+            font-size: 3em;
+            font-family: $cursiveFont
+        }
+    }
+    main {
+        .info {
+            display: block;
+            color: $greyText;
+            text-transform: uppercase
+        }
+        .info+div {
+            padding: 20px 0 0 0
+        }
+        .row {
+            margin: 0 0 30px 0
+        }
+        div[class^="col-"] {
+            padding: 8px 0 0 0;
+            float: none;
+            margin: 0 auto;
+            display: inline-block
+        }
+        .card {
+            @include center-content();
+            @include border-radius();
+            height: 105px;
+            width: 105px;
+            background: $card;
+            border: $card;
+            z-index: -1
+        }
+        #card-wrapper {
+            padding: 30px 0 0 0;
+            margin: 0 0 100px 0;
+            #card-1,
+            #card-3 {
+                transform: rotate(-35deg)
+            }
+            #card-2 {
+                transform: rotate(-10deg)
+            }
+            #card-4 {
+                transform: rotate(10deg)
+            }
+            p {
+                padding: 0 0 0 10px;
+            }
+            p:first-of-type {
+                font-size: 1.5em;
+                font-weight: bold
+            }
+            p:nth-of-type(2) {
+                font-family: $cursiveFont
+            }
+        }
+        .min_profile {
+            @include center-content(relative);
+            width: 105px;
+            height: 105px;
+            background: $stripped-bg;
+            img {
+                @include round-image(60px);
+                @include vertical-align()
+            }
+        }
+        .min_nickname {
+            width: 105px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: $nickname
+        }
+    }
+    footer {
+        margin: 50px 0 0 0;
+        padding: 0 0 20px 0;
+        background: $stripped-bg;
+        height: auto;
+        position: relative;
+        #profile_img {
+            @include center-content();
+            @include round-image(60px);
+            top: -30px;
+        }
+        #hot_disc {
+            text-transform: uppercase;
+            position: relative;
+            font-size: 1em;
+            padding-top: 50px;
+            color: $greyText;
+            span {
+                text-transform: initial;
+                font-size: 1.25em;
+                font-weight: bold;
+                padding: 0 10px 0 0;
+                color: $nickname;
+                font-family: $cursiveFont
+            }
+        }
+        #hot_topic {
+            padding: 0 0 25px 0;
+            font-size: 1.5em;
+            color: $nickname;
+            font-family: $cursiveFont;
+            font-weight: bold
+        }
+        div {
+            @include center-content(relative);
+            p {
+                span:first-of-type {
+                    font-size: 1.15em;
+                    font-weight: bold;
+                    padding: 0 5px 0 0
+                }
+                span:last-of-type {
+                    font-size: 1em;
+                    font-family: $cursiveFont
+                }
+            }
+        }
+    }
+}
