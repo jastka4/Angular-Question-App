@@ -1,0 +1,35 @@
+@import "./node_modules/bourbon/app/assets/stylesheets/bourbon";
+$cursiveFont: 'Indie Flower',
+cursive;
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    @include transform(translateY(-50%))
+}
+
+@mixin horizontal-align($position: relative) {
+    position: $position;
+    left: 50%;
+    @include transform(translateX(-50%))
+}
+
+@mixin border-radius($radius: 0) {
+    @include border-top-radius($radius);
+    @include border-right-radius($radius);
+    @include border-bottom-radius($radius);
+    @include border-left-radius($radius);
+}
+
+@mixin center-content($position: absolute) {
+    position: $position;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+@mixin round-image($height) {
+    height: $height;
+    @include border-radius(50%)
+}

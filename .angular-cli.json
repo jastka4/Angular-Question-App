@@ -21,6 +21,11 @@
             "styles.scss",
             "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         ],
+        "stylePreprocessorOptions": {
+            "includePaths": [
+                "assets/styles"
+            ]
+        },
         "scripts": [],
         "environmentSource": "environments/environment.ts",
         "environments": {
