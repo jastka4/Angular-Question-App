@@ -22,99 +22,142 @@ header#header {
     }
 }
 
-main {
-    #question {
-        background: $lightBlue;
-        header {
-            padding: 20px 0 10px 20px;
-            #profile {
-                .profile_picture {
-                    position: absolute;
-                    top: 50%;
-                    @include transform(translateY(-50%));
-                    @include round-image(60px)
-                }
-            }
-            #guestion_title {
-                p {
-                    span.name {
-                        font-weight: bold;
-                        color: $darkBlue;
-                        font-size: 1.1em
-                    }
-                    span.asking {
-                        color: $greyText;
-                        text-transform: uppercase;
-                        font-size: 0.9em
-                    }
-                }
-                h1 {
-                    margin: 10px 0;
-                    font-size: 1.4em;
-                    color: $darkBlue;
-                    font-family: $cursiveFont;
-                    font-weight: bold
-                }
-            }
-            #follow {
-                span {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    @include transform(translate(-50%, -50%));
-                    font-weight: bold;
-                    font-size: 1.1em;
-                    color: $darkBlue
-                }
-            }
+#question {
+    background: $lightBlue;
+    .title {
+        padding-bottom: 30px;
+    }
+    article {
+        padding-top: 40px;
+        padding-bottom: 40px
+    }
+    .upvotes {
+        top: 35px;
+    }
+}
+
+.answer {
+    aside {
+        border-right: 1px solid $bgGrey
+    }
+    .upvotes {
+        top: 15px;
+    }
+    .asking:after {
+        content: "\2022";
+        padding: 0 10px
+    }
+    .answer_date {
+        font-family: $cursiveFont;
+        font-weight: bold
+    }
+}
+
+#question,
+.answer {
+    @include box-shadow();
+    position: relative
+}
+
+.profile_picture {
+    @include horizontal-align();
+    @include round-image(60px)
+}
+
+header,
+article {
+    padding-left: 25px
+}
+
+article,
+aside,
+.title {
+    padding-top: 20px
+}
+
+span.name {
+    margin: 0 10px 0 0;
+    font-weight: bold;
+    color: $darkBlue;
+    font-size: 1.25em
+}
+
+span.asking {
+    color: $greyText;
+    text-transform: uppercase;
+    font-size: 0.9em
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 1.8em;
+    color: $darkBlue;
+    font-family: $cursiveFont;
+    font-weight: bold
+}
+
+#follow {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: $darkBlue
+    }
+}
+
+///////////////////////
+.content,
+article,
+.votes {
+    background: $white
+}
+
+.votes {
+    text-align: right;
+    padding: 0 10% 0 0;
+    .upvotes {
+        position: relative;
+        span {
+            font-size: 1.25em;
+            font-weight: bold;
+            padding: 0 5px 0 0
         }
-        article {
-            padding: 0 0 0 15px;
-            .content,
-            .votes {
-                background: #FFF
-            }
-            .content {
-                padding: 25px 25px 55px 25px
-            }
-            .votes {
-                text-align: center;
-                .upvotes {
-                    @include vertical-align();
-                    span {
-                        font-size: 1.2em;
-                        font-weight: bold;
-                        padding: 0 5px 0 0
-                    }
-                    .arrows {
-                        padding: 0 0 0 25px;
-                        display: inline-block;
-                        .arrow-up,
-                        .arrow-down {
-                            position: absolute;
-                            cursor: pointer
-                        }
-                        .arrow-up {
-                            top: -1em
-                        }
-                        .arrow-down {
-                            top: 1em
-                        }
-                    }
-                }
-            }
-            button {
-                @include horizontal-align(absolute);
-                bottom: -13px;
-                background: #FFF;
-                border: 1px solid rgba(222, 222, 222, 0.5);
-                font-size: 1.1em;
-                font-weight: bold;
-                padding: 5px 30px;
+        .arrows {
+            padding: 0 0 0 25px;
+            display: inline-block;
+            .arrow-up,
+            .arrow-down {
+                position: absolute;
                 cursor: pointer
+            }
+            .arrow-up {
+                top: -1em
             }
         }
     }
+}
+
+button {
+    @include horizontal-align(absolute);
+    bottom: -23px;
+    background: #FFF;
+    border: 1px solid $bgGrey;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 30px;
+    cursor: pointer
+}
+
+///////
+#answer_num {
+    font-family: $cursiveFont;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 80px 0 20px 0
 }
 
 .arrow-up {
