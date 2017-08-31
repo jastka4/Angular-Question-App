@@ -4,3 +4,23 @@
 p {
     margin: 0 !important
 }
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    >.col,
+    >[class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.no-padding {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.no-margins {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}

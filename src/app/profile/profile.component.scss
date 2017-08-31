@@ -1,11 +1,10 @@
 @import "partials";
 $greyText: $lightGrey;
-$greyBg: rgba(222, 222, 222, 0.5);
 $nickname: $darkBlue;
 $carouselArrow: $darkBlue;
 $card: $lightBlue;
 $carouselArrowHover: rgba(37, 170, 225, 0.8);
-$stripped-bg: repeating-linear-gradient( 45deg, $greyBg, $greyBg 1px, #FFF 1px, #FFF 3px);
+$stripped-bg: repeating-linear-gradient( 45deg, $bgGrey, $bgGrey 1px, #FFF 1px, #FFF 3px);
 .container {
     padding: 10px 125px 20px 125px;
     text-align: center;
