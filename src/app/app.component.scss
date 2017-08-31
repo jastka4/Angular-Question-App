@@ -1,0 +1,134 @@
+@import "partials";
+$greyText: $lightGrey;
+header#header {
+    position: relative;
+    height: 115px;
+    #back_btn {
+        border: 1px $greyText solid;
+        @include rounded-btn(40px, $greyText);
+        @include vertical-align(absolute);
+        left: 25px
+    }
+    h1 {
+        @include vertical-align();
+        text-transform: uppercase;
+        font-weight: bold
+    }
+    h1:after {
+        content: "+";
+        margin: 0 0 0 50px;
+        position: relative;
+        @include rounded-btn(20px, #FFF, $darkBlue)
+    }
+}
+
+main {
+    #question {
+        background: $lightBlue;
+        header {
+            padding: 20px 0 10px 20px;
+            #profile {
+                .profile_picture {
+                    position: absolute;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    @include round-image(60px)
+                }
+            }
+            #guestion_title {
+                p {
+                    span.name {
+                        font-weight: bold;
+                        color: $darkBlue;
+                        font-size: 1.1em
+                    }
+                    span.asking {
+                        color: $greyText;
+                        text-transform: uppercase;
+                        font-size: 0.9em
+                    }
+                }
+                h1 {
+                    margin: 10px 0;
+                    font-size: 1.4em;
+                    color: $darkBlue;
+                    font-family: $cursiveFont;
+                    font-weight: bold
+                }
+            }
+            #follow {
+                span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @include transform(translate(-50%, -50%));
+                    font-weight: bold;
+                    font-size: 1.1em;
+                    color: $darkBlue
+                }
+            }
+        }
+        article {
+            padding: 0 0 0 15px;
+            .content,
+            .votes {
+                background: #FFF
+            }
+            .content {
+                padding: 25px 25px 55px 25px
+            }
+            .votes {
+                text-align: center;
+                .upvotes {
+                    @include vertical-align();
+                    span {
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        padding: 0 5px 0 0
+                    }
+                    .arrows {
+                        padding: 0 0 0 25px;
+                        display: inline-block;
+                        .arrow-up,
+                        .arrow-down {
+                            position: absolute;
+                            cursor: pointer
+                        }
+                        .arrow-up {
+                            top: -1em
+                        }
+                        .arrow-down {
+                            top: 1em
+                        }
+                    }
+                }
+            }
+            button {
+                @include horizontal-align(absolute);
+                bottom: -13px;
+                background: #FFF;
+                border: 1px solid rgba(222, 222, 222, 0.5);
+                font-size: 1.1em;
+                font-weight: bold;
+                padding: 5px 30px;
+                cursor: pointer
+            }
+        }
+    }
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 14px solid $darkBlue;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 14px solid $darkBlue;
+}
