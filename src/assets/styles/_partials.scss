@@ -1,11 +1,11 @@
 @import "./node_modules/bourbon/app/assets/stylesheets/bourbon";
 $cursiveFont: 'Indie Flower',
 cursive;
+$background: rgba(251, 251, 251, 1);
 $lightGrey: rgba(125, 139, 152, 1);
 $bgGrey: rgba(222, 222, 222, 0.5);
 $darkBlue: rgba(2, 102, 179, 1);
 $lightBlue: rgba(229, 245, 253, 1);
-$white: rgba(255, 255, 255, 1);
 @mixin vertical-align($position: relative) {
     position: $position;
     top: 50%;
@@ -47,13 +47,13 @@ $white: rgba(255, 255, 255, 1);
     height: $radius;
     color: $textColor;
     background: $bgColor;
-    font-size: $radius;
-    line-height: calc( #{$radius} + 2px);
+    //font-size: $radius;
+    //line-height: calc( #{$radius} + 2px);
     @include border-radius(50%)
 }
 
-@mixin box-shadow() {
-    -webkit-box-shadow: 3px -3px 8px 0px $bgGrey;
-    -moz-box-shadow: 3px -3px 8px 0px $bgGrey;
-    box-shadow: 3px -3px 8px 0px $bgGrey
+@mixin box-shadow($vertical: -3px, $horizontal: 3px) {
+    -webkit-box-shadow: $horizontal $vertical 8px 0px $bgGrey;
+    -moz-box-shadow: $horizontal $vertical 8px 0px $bgGrey;
+    box-shadow: $horizontal $vertical 8px 0px $bgGrey
 }
