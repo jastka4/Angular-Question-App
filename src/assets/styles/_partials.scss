@@ -47,8 +47,8 @@ $lightBlue: rgba(229, 245, 253, 1);
     height: $radius;
     color: $textColor;
     background: $bgColor;
-    //font-size: $radius;
-    //line-height: calc( #{$radius} + 2px);
+    font-size: $radius;
+    line-height: $radius;
     @include border-radius(50%)
 }
 
