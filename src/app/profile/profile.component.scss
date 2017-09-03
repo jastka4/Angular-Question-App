@@ -1,11 +1,10 @@
 @import "partials";
-$greyText: rgba(125, 139, 152, 1);
-$greyBg: rgba(222, 222, 222, 0.5);
-$nickname: rgba(2, 102, 179, 1);
-$card: rgba(229, 245, 253, 1);
-$carouselArrow: $nickname;
+$greyText: $lightGrey;
+$nickname: $darkBlue;
+$carouselArrow: $darkBlue;
+$card: $lightBlue;
 $carouselArrowHover: rgba(37, 170, 225, 0.8);
-$stripped-bg: repeating-linear-gradient( 45deg, $greyBg, $greyBg 1px, #FFF 1px, #FFF 3px);
+$stripped-bg: repeating-linear-gradient( 45deg, $bgGrey, $bgGrey 1px, #FFF 1px, #FFF 3px);
 .container {
     padding: 10px 125px 20px 125px;
     text-align: center;
@@ -58,17 +57,12 @@ $stripped-bg: repeating-linear-gradient( 45deg, $greyBg, $greyBg 1px, #FFF 1px, 
         .carousel-prev,
         .carousel-next {
             cursor: pointer;
-            position: absolute;
             top: 50%;
-            width: 30px;
-            height: 30px;
             margin-top: -15px;
-            color: #FFFFFF;
-            background: $carouselArrow;
-            font-size: 30px;
-            line-height: 32px;
-            transition: 0.6s ease;
-            border-radius: 50%
+            @include rounded-btn(30px,
+            #FFF,
+            $carouselArrow);
+            transition: 0.6s ease
         }
         .carousel-next {
             right: 0
