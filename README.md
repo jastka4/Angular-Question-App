@@ -1,4 +1,5 @@
-# Angular4Monterail
+# Monterail-Task
+Single Page Application using Angular 4
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
