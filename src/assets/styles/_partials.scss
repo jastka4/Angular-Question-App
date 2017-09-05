@@ -52,8 +52,8 @@ $lightBlue: rgba(229, 245, 253, 1);
     @include border-radius(50%)
 }
 
-@mixin box-shadow($vertical: -3px, $horizontal: 3px) {
-    -webkit-box-shadow: $horizontal $vertical 8px 0px $bgGrey;
-    -moz-box-shadow: $horizontal $vertical 8px 0px $bgGrey;
-    box-shadow: $horizontal $vertical 8px 0px $bgGrey
+@mixin box-shadow($vertical: -3px, $horizontal: 3px, $spread: 0px) {
+    -webkit-box-shadow: $horizontal $vertical 8px $spread $bgGrey;
+    -moz-box-shadow: $horizontal $vertical 8px $spread $bgGrey;
+    box-shadow: $horizontal $vertical 8px $spread $bgGrey
 }
