@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "partials";
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Lato:400,700');
 body,
 html {
@@ -38,4 +39,16 @@ html {
 .no-margins {
     margin-right: 0 !important;
     margin-left: 0 !important;
+}
+
+.number {
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.cursive {
+    font-family: $cursiveFont;
+    font-size: 1.1em;
+    font-weight: bold
 }
