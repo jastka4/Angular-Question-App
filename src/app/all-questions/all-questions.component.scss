@@ -5,11 +5,7 @@ header#header {
     width: 100%;
     position: relative;
     .container-fluid {
-        padding: 50px 200px 0;
-        height: inherit;
-        div.row {
-            height: 45px;
-        }
+        height: inherit
     }
     #back_btn {
         border: 1px $greyText solid;
@@ -18,7 +14,7 @@ header#header {
         height: 45px;
         position: absolute;
         @include border-radius(50%);
-        left: 25px;
+        left: 4vw;
         .arrow-top,
         .arrow-bottom {
             height: 22px;
@@ -259,3 +255,33 @@ main {
         }
     }
 }
+
+@media only screen and (min-device-width: 992px) {
+    #header {
+        .container-fluid {
+            padding: 50px 200px 0;
+        }
+    }
+    main {
+        padding: 0 200px 100px;
+    }
+}
+
+@media only screen and (max-device-width: 991px) {
+    #header {
+        .container-fluid {
+            padding: 50px 0 0
+        }
+        #add_question {
+            right: 4vw
+        }
+    }
+    main {
+        padding: 0 0 100px;
+        footer {
+            @include horizontal-align(absolute)
+        }
+    }
+}
+
+@media only screen and (max-device-width: 767px) {}
