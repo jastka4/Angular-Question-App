@@ -6,6 +6,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SingleQuestionComponent } from './single-question/single-question.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
     AllQuestionsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
