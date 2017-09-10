@@ -7,25 +7,25 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routerConfig: Routes = [
     {
-        path: 'questions',
+        path: '',
         component: AllQuestionsComponent
     },
     {
-        path: 'single-question',
+        path: 'question/:id',
         component: SingleQuestionComponent
     },
         {
-        path: 'profile',
+        path: 'profile/:name',
         component: ProfileComponent
     },
     {
         path: '',
-        redirectTo: '/questions',
+        redirectTo: '/',
         pathMatch: 'full'
     },
     {
         path: '**',
-        redirectTo: '/questions',
+        redirectTo: '/',
         pathMatch: 'full'
     }
 ];

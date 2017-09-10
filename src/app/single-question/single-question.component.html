@@ -1,13 +1,13 @@
 <header id="header">
     <div class="container-fluid">
         <div class="row">
-            <span id="back_btn"><i class="arrow-top"></i><i class="arrow-bottom"></i></span>
+            <span id="back_btn" routerLink="/"><i class="arrow-top"></i><i class="arrow-bottom"></i></span>
             <div class="col-10 offset-2 col-md-6 offset-lg-0">
                 <h1>Question</h1>
                 <span id="add_question">+</span>
             </div>
             <div id="last_discussed" class="col-6 col-md-4 col-lg-6 hidden-sm-down">
-                <p><span class="cursive">Last time discussed</span><span class="number">1</span><span class="cursive">day ago</span></p>
+                <p><span class="cursive">Last time discussed</span><span class="number">{{ getLastActivityDate(0) }}</span><span class="cursive">day ago</span></p>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
                 <header class="col-12 no-padding">
                     <div class="row no-margins">
                         <aside class="col-2 profile">
-                            <img class="profile_picture" routerLink="/profile/{{question.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                            <img class="profile_picture" routerLink="/profile/{{question.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                         </aside>
                         <div class="col-10 title">
                             <span class="name" routerLink="/profile/{{question.username}}">{{ question.username }}</span><span class="asking">is asking:</span>
@@ -48,7 +48,7 @@
                         <span>unfollow</span>
                     </div>
                     <div class="col-6 col-md-12 votes">
-                        <div class="upvotes"><span class="number">{{question.votes}}</span><span class="cursive">upvotes</span>
+                        <div class="upvotes"><span class="number" [innerHTML]="toNaturalNumber(question.votes)"></span><span class="cursive" [innerHTML]="ifUpvotes(question.votes)"></span>
                             <div class="arrows">
                                 <i class="arrow-up"></i><i class="arrow-down"></i>
                             </div>
@@ -67,10 +67,10 @@
                     <header class="col-12 no-padding">
                         <div class="row no-margins">
                             <aside class="col-2 profile">
-                                <img class="profile_picture" routerLink="/profile/{{answer.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                                <img class="profile_picture" routerLink="/profile/{{answer.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                             </aside>
                             <div class="col-10 title">
-                                <p><span class="name" routerLink="/profile/{{answer.username}}">{{ answer.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
+                                <p><span class="name" routerLink="/profile/{{answer.username}}">{{ answer.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ answer.date | dayDifference }}</span></p>
                             </div>
                         </div>
                     </header>
@@ -88,7 +88,7 @@
                 <aside class="col-12 col-md-3 info">
                     <div class="row">
                         <div class="col-12 votes">
-                            <div class="upvotes"><span class="number">{{answer.votes}}</span><span class="cursive">upvotes</span>
+                            <div class="upvotes"><span class="number" [innerHTML]="toNaturalNumber(answer.votes)"></span><span class="cursive" [innerHTML]="ifUpvotes(answer.votes)"></span>
                                 <div class="arrows">
                                     <i class="arrow-up"></i><i class="arrow-down"></i>
                                 </div>
@@ -102,10 +102,10 @@
                     <header class="col-12 no-padding">
                         <div class="row no-margins">
                             <aside class="col-2 profile">
-                                <img class="profile_picture" routerLink="/profile/{{comment.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                                <img class="profile_picture" routerLink="/profile/{{comment.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                             </aside>
                             <div class="col-10 title">
-                                <p><span class="name" routerLink="/profile/{{comment.username}}">{{ comment.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
+                                <p><span class="name" routerLink="/profile/{{comment.username}}">{{ comment.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ comment.date | dayDifference }}</span></p>
                             </div>
                         </div>
                     </header>
@@ -123,7 +123,7 @@
                 <aside class="col-12 col-md-3 info">
                     <div class="row">
                         <div class="col-12 votes">
-                            <div class="upvotes"><span class="number">{{comment.votes}}</span><span class="cursive">upvotes</span>
+                            <div class="upvotes"><span class="number" [innerHTML]="toNaturalNumber(comment.votes)"></span><span class="cursive" [innerHTML]="ifUpvotes(comment.votes)"></span>
                                 <div class="arrows">
                                     <i class="arrow-up"></i><i class="arrow-down"></i>
                                 </div>
