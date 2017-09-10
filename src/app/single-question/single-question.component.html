@@ -2,116 +2,137 @@
     <div class="container-fluid">
         <div class="row">
             <span id="back_btn"><i class="arrow-top"></i><i class="arrow-bottom"></i></span>
-            <div class="col-6">
+            <div class="col-10 offset-2 col-md-6 offset-lg-0">
                 <h1>Question</h1>
                 <span id="add_question">+</span>
             </div>
-            <div id="last_discussed" class="col-6">
+            <div id="last_discussed" class="col-6 col-md-4 col-lg-6 hidden-sm-down">
                 <p><span class="cursive">Last time discussed</span><span class="number">1</span><span class="cursive">day ago</span></p>
             </div>
         </div>
     </div>
 </header>
-<main class="container-fluid">
-    <div id="question" class="row no-gutters">
-        <aside class="col-1 profile">
-            <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-        </aside>
-        <section class="col-11">
-            <div class="row no-margins">
-                <header class="col-8 title">
-                    <span class="name">Eva</span><span class="asking">is asking:</span>
-                    <h1>Will insulin make my patient gain weight?</h1>
+<div id="wrapper">
+    <main class="container-fluid" *ngFor="let question of questions">
+        <div id="question" class="row no-gutters">
+            <div class="col-12 col-md-9">
+                <header class="col-12 no-padding">
+                    <div class="row no-margins">
+                        <aside class="col-2 profile">
+                            <img class="profile_picture" routerLink="/profile/{{question.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                        </aside>
+                        <div class="col-10 title">
+                            <span class="name" routerLink="/profile/{{question.username}}">{{ question.username }}</span><span class="asking">is asking:</span>
+                        </div>
+                        <aside class="col-2 hidden-sm-down">
+                        </aside>
+                        <div class="col-12 col-md-10 topic">
+                            <h1>{{ question.topic }}</h1>
+                        </div>
+                    </div>
                 </header>
-                <div id="follow" class="col-4">
-                    <span>unfollow</span>
-                </div>
-                <article class="col-8">
-                    All my patients with diabetes should see an opthalmologist yearly for a dialated eye examination- beginning at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabeters after puberty. Patients with know eye disease, symptoms
-                    of blurred vision in one eye, or blind spots may need to see their opthalmologist more frequently.
+                <article class="col-12 no-padding">
+                    <div class="row gutter-10">
+                        <section class="col-2 hidden-sm-down space"></section>
+                        <section class="col-12 col-md-10 content">
+                            <p>
+                                {{ question.content }}
+                            </p>
+                        </section>
+                    </div>
                 </article>
-                <div class="col-4 votes">
-                    <div class="upvotes"><span class="number">19</span><span class="cursive">upvotes</span>
-                        <div class="arrows">
-                            <i class="arrow-up"></i><i class="arrow-down"></i>
+            </div>
+            <aside class="col-12 col-md-3 info">
+                <div class="row no-margins">
+                    <div id="follow" class="col-6 col-md-12">
+                        <span>unfollow</span>
+                    </div>
+                    <div class="col-6 col-md-12 votes">
+                        <div class="upvotes"><span class="number">{{question.votes}}</span><span class="cursive">upvotes</span>
+                            <div class="arrows">
+                                <i class="arrow-up"></i><i class="arrow-down"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <button id="answer_question" class="button">GIVE new answer</button>
-    </div>
-    <div id="answer_num"><span class="number">2</span><span class="cursive">peers already answered </span><span id="name">Eva</span></div>
-    <div class="answer row no-gutters">
-        <aside class="col-1 profile">
-            <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-        </aside>
-        <section class="col-11">
-            <div class="row no-margins">
-                <header class="col-8 title">
-                    <p><span class="name">Patricia</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
-                </header>
-                <article class="col-8">
-                    Numbers or tingling in your feet should be reported to your doctor at your regular visits.
-                </article>
-                <div class="col-4 votes">
-                    <div class="upvotes"><span class="number">8</span><span class="cursive">upvotes</span>
-                        <div class="arrows">
-                            <i class="arrow-up"></i><i class="arrow-down"></i>
+            </aside>
+            <button id="answer_question" class="button">GIVE new answer</button>
+        </div>
+        <div id="answer_num">
+            <span class="number">{{ question.answers.length }}</span><span class="cursive">peers already answered <span id="name">{{ question.username }}</span></span>
+        </div>
+        <div *ngFor="let answer of question.answers">
+            <div class="answer row no-gutters">
+                <div class="col-12 col-md-9">
+                    <header class="col-12 no-padding">
+                        <div class="row no-margins">
+                            <aside class="col-2 profile">
+                                <img class="profile_picture" routerLink="/profile/{{answer.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                            </aside>
+                            <div class="col-10 title">
+                                <p><span class="name" routerLink="/profile/{{answer.username}}">{{ answer.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
+                            </div>
+                        </div>
+                    </header>
+                    <article class="col-12 no-padding">
+                        <div class="row no-margins">
+                            <section class="col-2 hidden-sm-down space"></section>
+                            <section class="col-12 col-md-10 content">
+                                <p>
+                                    {{ answer.content }}
+                                </p>
+                            </section>
+                        </div>
+                    </article>
+                </div>
+                <aside class="col-12 col-md-3 info">
+                    <div class="row">
+                        <div class="col-12 votes">
+                            <div class="upvotes"><span class="number">{{answer.votes}}</span><span class="cursive">upvotes</span>
+                                <div class="arrows">
+                                    <i class="arrow-up"></i><i class="arrow-down"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </aside>
+                <button id="answer_question" class="button" *ngIf="answer.comments === undefined">COMMENT</button> </div>
+            <div class="comment row no-gutters" *ngFor="let comment of answer.comments; let isLast = last">
+                <div class="col-12 col-md-9">
+                    <header class="col-12 no-padding">
+                        <div class="row no-margins">
+                            <aside class="col-2 profile">
+                                <img class="profile_picture" routerLink="/profile/{{comment.username}}" src="../assets/images/profile.png" alt="Profile picture">
+                            </aside>
+                            <div class="col-10 title">
+                                <p><span class="name" routerLink="/profile/{{comment.username}}">{{ comment.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
+                            </div>
+                        </div>
+                    </header>
+                    <article class="col-12 no-padding">
+                        <div class="row no-margins">
+                            <section class="col-2 hidden-sm-down space"></section>
+                            <section class="col-12 col-md-10 content">
+                                <p>
+                                    {{ comment.content }}
+                                </p>
+                            </section>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </section>
-    </div>
-    <div class="comment row no-gutters">
-        <div class="offset-1"></div>
-        <aside class="col-1 profile">
-            <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-        </aside>
-        <section class="col-10">
-            <div class="row no-margins">
-                <header class="col-8 title">
-                    <p><span class="name">David</span><span class="asking">commented it</span><span class="answer_date cursive">yesterday</span></p>
-                </header>
-                <article class="col-8">
-                    Numbers or tingling in your feet should be reported to your doctor at your regular visits.
-                </article>
-                <div class="col-4 votes">
-                    <div class="upvotes"><span class="number">2</span><span class="cursive">upvotes</span>
-                        <div class="arrows">
-                            <i class="arrow-up"></i><i class="arrow-down"></i>
+                <aside class="col-12 col-md-3 info">
+                    <div class="row">
+                        <div class="col-12 votes">
+                            <div class="upvotes"><span class="number">{{comment.votes}}</span><span class="cursive">upvotes</span>
+                                <div class="arrows">
+                                    <i class="arrow-up"></i><i class="arrow-down"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </aside>
+                <button id="answer_question" class="button" *ngIf="isLast">CONTINUE discussion</button>
             </div>
-        </section>
-        <button id="answer_question" class="button">CONTINUE discussion</button>
-
-    </div>
-    <div class="answer row no-gutters">
-        <aside class="col-1 profile">
-            <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-        </aside>
-        <section class="col-11">
-            <div class="row no-margins">
-                <header class="col-8 title">
-                    <p><span class="name">Joseph's</span><span class="asking">commented it</span><span class="answer_date cursive">two days</span></p>
-                </header>
-                <article class="col-8">
-                    Numbers or tingling in your feet should be reported to your doctor at your regular visits.
-                </article>
-                <div class="col-4 votes">
-                    <div class="upvotes"><span class="number">3</span><span class="cursive">downvotes</span>
-                        <div class="arrows">
-                            <i class="arrow-up"></i><i class="arrow-down"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <button id="answer_question" class="button">COMMENT</button>
-
-    </div>
-</main>
+        </div>
+    </main>
+</div>
