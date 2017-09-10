@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="profile">
     <span id="close">&times;</span>
     <header id="header" class="row no-gutters">
         <div id="profile_picture" class="col-12">
-            <img src="../assets/images/profile.png" alt="Profile picture" />
+            <img [attr.src]="profile.picture" alt="Profile picture" />
         </div>
-        <h1 id="nickname" class="col-12">jastka4</h1>
+        <h1 id="nickname" class="col-12">{{ profile.username }}</h1>
         <div class="col-12 col-md-4" id="member_for"><span class="profile_info">Member for</span>5 months</div>
         <div class="col-12 col-md-4" id="last_seen"><span class="profile_info">Last seen</span>Saturday afternoon</div>
         <div class="col-12 col-md-4" id="activity"><span class="profile_info">Activity level</span><span><i></i><i></i><i></i></span></div>
