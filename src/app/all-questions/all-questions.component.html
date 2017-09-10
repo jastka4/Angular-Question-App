@@ -38,7 +38,7 @@
                     </aside>
                     <div class="col-10 title">
                         <span class="name" [routerLink]="['/profile',question.username]">{{ question.username }}</span><span class="asking">is asking:</span>
-                        <h1>{{ question.topic }}</h1>
+                        <h1 [routerLink]="['/question',question.id]">{{ question.topic }}</h1>
                     </div>
                 </div>
             </header>

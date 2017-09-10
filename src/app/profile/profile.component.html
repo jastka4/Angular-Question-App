@@ -1,5 +1,5 @@
 <div class="container" *ngIf="profile">
-    <span id="close">&times;</span>
+    <span id="close" routerLink="/">&times;</span>
     <header id="header" class="row no-gutters">
         <div id="profile_picture" class="col-12">
             <img [attr.src]="profile.picture" alt="Profile picture" />
