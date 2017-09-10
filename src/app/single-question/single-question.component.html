@@ -7,22 +7,22 @@
                 <span id="add_question">+</span>
             </div>
             <div id="last_discussed" class="col-6 col-md-4 col-lg-6 hidden-sm-down">
-                <p><span class="cursive">Last time discussed</span><span class="number">{{ getLastActivityDate(0) }}</span><span class="cursive">day ago</span></p>
+                <p><span class="cursive">Last time discussed</span><span class="number">{{ getLastActivityDate(id) }}</span><span class="cursive">day ago</span></p>
             </div>
         </div>
     </div>
 </header>
 <div id="wrapper">
-    <main class="container-fluid" *ngFor="let question of questions">
+    <main class="container-fluid" *ngIf="question">
         <div id="question" class="row no-gutters">
             <div class="col-12 col-md-9">
                 <header class="col-12 no-padding">
                     <div class="row no-margins">
                         <aside class="col-2 profile">
-                            <img class="profile_picture" routerLink="/profile/{{question.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
+                            <img class="profile_picture" [routerLink]="['/profile',question.username]" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                         </aside>
                         <div class="col-10 title">
-                            <span class="name" routerLink="/profile/{{question.username}}">{{ question.username }}</span><span class="asking">is asking:</span>
+                            <span class="name" [routerLink]="['/profile',question.username]">{{ question.username }}</span><span class="asking">is asking:</span>
                         </div>
                         <aside class="col-2 hidden-sm-down">
                         </aside>
@@ -67,10 +67,10 @@
                     <header class="col-12 no-padding">
                         <div class="row no-margins">
                             <aside class="col-2 profile">
-                                <img class="profile_picture" routerLink="/profile/{{answer.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
+                                <img class="profile_picture" [routerLink]="['/profile',question.username]" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                             </aside>
                             <div class="col-10 title">
-                                <p><span class="name" routerLink="/profile/{{answer.username}}">{{ answer.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ answer.date | dayDifference }}</span></p>
+                                <p><span class="name" [routerLink]="['/profile',question.username]">{{ answer.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ answer.date | dayDifference }}</span></p>
                             </div>
                         </div>
                     </header>
@@ -102,10 +102,10 @@
                     <header class="col-12 no-padding">
                         <div class="row no-margins">
                             <aside class="col-2 profile">
-                                <img class="profile_picture" routerLink="/profile/{{comment.username}}" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
+                                <img class="profile_picture" [routerLink]="['/profile',question.username]" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
                             </aside>
                             <div class="col-10 title">
-                                <p><span class="name" routerLink="/profile/{{comment.username}}">{{ comment.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ comment.date | dayDifference }}</span></p>
+                                <p><span class="name" [routerLink]="['/profile',question.username]">{{ comment.username }}</span><span class="asking">commented it</span><span class="answer_date cursive">{{ comment.date | dayDifference }}</span></p>
                             </div>
                         </div>
                     </header>

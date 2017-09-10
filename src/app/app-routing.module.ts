@@ -15,7 +15,7 @@ const routerConfig: Routes = [
         component: SingleQuestionComponent
     },
         {
-        path: 'profile/:name',
+        path: 'profile/:username',
         component: ProfileComponent
     },
     {
