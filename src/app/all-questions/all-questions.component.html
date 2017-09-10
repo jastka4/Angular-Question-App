@@ -1,6 +1,6 @@
 <header id="header">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row no-margins">
             <span id="back_btn"><i class="arrow-top"></i><i class="arrow-bottom"></i></span>
             <div class="col-10 offset-2 col-lg-5 offset-lg-0">
                 <h1>Questions</h1>
@@ -28,159 +28,63 @@
         </form>
     </div>
 </header>
-<main class="container-fluid">
-    <div class="row question no-gutters">
-        <header class="col-12 col-lg-9">
-            <div class="row no-margins">
-                <aside class="col-2 profile">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                </aside>
-                <div class="col-10 title">
-                    <span class="name">Eva</span><span class="asking">is asking:</span>
-                    <h1>Will insulin make my patient gain weight?</h1>
+<div id="wrapper">
+    <main class="container-fluid">
+        <div class="row question no-gutters" *ngFor="let question of questions">
+            <header class="col-12 col-lg-9">
+                <div class="row no-margins">
+                    <aside class="col-2 profile">
+                        <img class="profile_picture" routerLink="['/profile', question.username]" [attr.src]="getProfilePicture(question.username)" alt="Profile picture">
+                    </aside>
+                    <div class="col-10 title">
+                        <span class="name" [routerLink]="['/profile',question.username]">{{ question.username }}</span><span class="asking">is asking:</span>
+                        <h1>{{ question.topic }}</h1>
+                    </div>
                 </div>
-            </div>
-        </header>
-        <article class="col-6 col-sm-4 col-lg-9 activity no-padding">
-            <div class="row gutter-10">
-                <section class="col-sm-4 col-lg-2 hidden-sm-down profile">
-                    <p>Asked</p>
-                </section>
-                <section class="col-6 col-sm-4 col-lg-2 activities">
-                    <span class="number">3</span>
-                    <p class=" cursive">more activities</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-6 col-sm-4 col-lg-2">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="answered">Answered</p>
-                </section>
-            </div>
-        </article>
-        <aside class="col-6 col-sm-4 col-lg-3 info">
-            <ul>
-                <li>
-                    <p><span class="number">1</span><span class="cursive">related discussion</span></p>
-                </li>
-                <li>
-                    <p><span class="number">6</span><span class="cursive">peers involved</span></p>
-                </li>
-                <li>
-                    <p><span class="number">3</span><span class="cursive">conversations</span></p>
-                </li>
-            </ul>
-        </aside>
-    </div>
-    <div class="row question no-gutters">
-        <header class="col-12 col-lg-9">
-            <div class="row no-margins">
-                <aside class="col-2 profile">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                </aside>
-                <div class="col-10 title">
-                    <span class="name">Andrew</span><span class="asking">is asking:</span>
-                    <h1>Vegan diet in diabetes treatment?</h1>
+            </header>
+            <article class="col-6 col-sm-4 col-lg-9 activity no-padding">
+                <div class="row gutter-10">
+                    <section class="col-sm-4 col-lg-2 hidden-sm-down profile">
+                        <p>Asked</p>
+                    </section>
+                    <section class="col-6 col-sm-4 col-lg-2 activities" *ngIf="question.conversations !== 0">
+                        <span class="number">3</span>
+                        <p class=" cursive">more activities</p>
+                    </section>
+                    <section class="col-lg-2 hidden-md-down">
+                        <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
+                        <p class="commented">Commented</p>
+                    </section>
+                    <section class="col-lg-2 hidden-md-down">
+                        <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
+                        <p class="commented">Commented</p>
+                    </section>
+                    <section class="col-lg-2 hidden-md-down">
+                        <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
+                        <p class="commented">Commented</p>
+                    </section>
+                    <section class="col-6 col-sm-4 col-lg-2">
+                        <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
+                        <p class="answered">Answered</p>
+                    </section>
                 </div>
-            </div>
-        </header>
-        <article class="col-6 col-sm-4 col-lg-9 activity no-padding">
-            <div class="row gutter-10">
-                <section class="col-sm-4 col-lg-2 hidden-sm-down profile">
-                    <p>Asked</p>
-                </section>
-                <section class="col-6 col-sm-4 col-lg-2 activities">
-                    <span class="number">6</span>
-                    <p class=" cursive">more activities</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-6 col-sm-4 col-lg-2">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="answered">Answered</p>
-                </section>
-            </div>
-        </article>
-        <aside class="col-6 col-sm-4 col-lg-3 info">
-            <ul>
-                <li>
-                    <p><span class="number">2</span><span class="cursive">related discussion</span></p>
-                </li>
-                <li>
-                    <p><span class="number">9</span><span class="cursive">peers involved</span></p>
-                </li>
-                <li>
-                    <p><span class="number">5</span><span class="cursive">conversations</span></p>
-                </li>
-            </ul>
-        </aside>
-    </div>
-    <div class="row question no-gutters">
-        <header class="col-12 col-lg-9">
-            <div class="row no-margins">
-                <aside class="col-2 profile">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                </aside>
-                <div class="col-10 title">
-                    <span class="name">Joseph</span><span class="asking">is asking:</span>
-                    <h1>Vegan diet to stop diabetes progress</h1>
-                </div>
-            </div>
-        </header>
-        <article class="col-6 col-sm-4 col-lg-9 activity no-padding">
-            <div class="row gutter-10">
-                <section class="col-sm-4 col-lg-2 hidden-sm-down profile">
-                    <p>Asked</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-lg-2 hidden-md-down">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="commented">Commented</p>
-                </section>
-                <section class="col-6 col-sm-4 col-lg-2">
-                    <img class="profile_picture" src="../assets/images/profile.png" alt="Profile picture">
-                    <p class="answered">Answered</p>
-                </section>
-            </div>
-        </article>
-        <aside class="col-6 col-sm-4 col-lg-3 info">
-            <ul>
-                <li>
-                    <p><span class="number">5</span><span class="cursive">related discussion</span></p>
-                </li>
-                <li>
-                    <p><span class="number">4</span><span class="cursive">peers involved</span></p>
-                </li>
-                <li>
-                    <p><span class="number">0</span><span class="cursive">conversations</span></p>
-                </li>
-            </ul>
-        </aside>
-    </div>
-    <footer>
-        <p>load more questions</p>
-    </footer>
-</main>
+            </article>
+            <aside class="col-6 col-sm-4 col-lg-3 info">
+                <ul>
+                    <li>
+                        <p><span class="number">{{ question.related_disc }}</span><span class="cursive">related discussion</span></p>
+                    </li>
+                    <li>
+                        <p><span class="number">6</span><span class="cursive">peers involved</span></p>
+                    </li>
+                    <li>
+                        <p><span class="number">3</span><span class="cursive">conversations</span></p>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <footer>
+            <p>load more questions</p>
+        </footer>
+    </main>
+</div>

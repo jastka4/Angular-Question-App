@@ -110,8 +110,8 @@ header#header {
 }
 
 main {
-    padding: 0 200px 100px;
     background-clip: content-box;
+    background: $background;
     .question {
         @include box-shadow(0, 3px, -2px);
         position: relative;
@@ -120,7 +120,10 @@ main {
     header {
         background: $lightBlue;
         .profile_picture {
-            @include horizontal-align()
+            @include horizontal-align();
+            img {
+                cursor: pointer
+            }
         }
         h1 {
             margin: 10px 0;
@@ -138,7 +141,8 @@ main {
             margin: 0 10px 0 0;
             font-weight: bold;
             color: $darkBlue;
-            font-size: 1.25em
+            font-size: 1.25em;
+            cursor: pointer
         }
         span.asking {
             color: $greyText;
@@ -147,18 +151,8 @@ main {
         }
     }
     .profile_picture {
-        @include round-image(60px)
-    }
-    span.name {
-        margin: 0 10px 0 0;
-        font-weight: bold;
-        color: $darkBlue;
-        font-size: 1.25em
-    }
-    span.asking {
-        color: $greyText;
-        text-transform: uppercase;
-        font-size: 0.9em
+        @include round-image(60px);
+        cursor: pointer
     }
     .activity {
         section {
@@ -257,13 +251,19 @@ main {
 }
 
 @media only screen and (min-device-width: 992px) {
+    #wrapper {
+        background: rgb(255, 225, 173)
+    }
     #header {
+        padding: 50px 40px 0;
         .container-fluid {
-            padding: 50px 200px 0;
+            padding: 0 200px
         }
     }
     main {
         padding: 0 200px 100px;
+        margin-left: 40px;
+        margin-right: 40px
     }
 }
 

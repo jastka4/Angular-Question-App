@@ -12,6 +12,8 @@ export class QuestionsService {
             topic: 'Will insulin make my patient gain weight?',
             content: 'All my patients with diabetes should see an opthalmologist yearly for a dialated eye examination- beginning at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabeters after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots may need to see their opthalmologist more frequently.',
             votes: 19,
+            related_disc: 1,
+            conversations: 5,
             answers: [
                 {
                     username: 'Patricia',
@@ -39,6 +41,9 @@ export class QuestionsService {
 
     constructor(private profilesService: ProfilesService) {
         this.profilesService = profilesService;
+        for(let i = 1; i < 10; i++){
+            this.questions.push(this.questions[0]);
+            this.questions[i].id = i;
+        }
     }
-
 }
