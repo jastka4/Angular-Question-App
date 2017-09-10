@@ -1,0 +1,59 @@
+@import "./node_modules/bourbon/app/assets/stylesheets/bourbon";
+$cursiveFont: 'Indie Flower',
+cursive;
+$background: rgba(251, 251, 251, 1);
+$lightGrey: rgba(125, 139, 152, 1);
+$bgGrey: rgba(222, 222, 222, 0.5);
+$darkBlue: rgba(2, 102, 179, 1);
+$lightBlue: rgba(229, 245, 253, 1);
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    @include transform(translateY(-50%))
+}
+
+@mixin horizontal-align($position: relative) {
+    position: $position;
+    left: 50%;
+    @include transform(translateX(-50%))
+}
+
+@mixin border-radius($radius: 0) {
+    @include border-top-radius($radius);
+    @include border-right-radius($radius);
+    @include border-bottom-radius($radius);
+    @include border-left-radius($radius);
+}
+
+@mixin center-content($position: absolute) {
+    position: $position;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+@mixin round-image($height) {
+    height: $height;
+    @include border-radius(50%)
+}
+
+@mixin rounded-btn($radius, $textColor: initial, $bgColor: initial) {
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    width: $radius;
+    height: $radius;
+    color: $textColor;
+    background: $bgColor;
+    font-size: $radius;
+    line-height: $radius;
+    @include border-radius(50%)
+}
+
+@mixin box-shadow($vertical: -3px, $horizontal: 3px, $spread: 0px) {
+    -webkit-box-shadow: $horizontal $vertical 8px $spread $bgGrey;
+    -moz-box-shadow: $horizontal $vertical 8px $spread $bgGrey;
+    box-shadow: $horizontal $vertical 8px $spread $bgGrey
+}
